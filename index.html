@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>CodeFlow</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="navbar">
+    <ul>
+      <li><a href="#">Home</a></li>
+      <li><a href="#">About</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+  </div>
+
+  <div class="container">
+    <h1>CodeFlow</h1>
+    <textarea id="codeEditor" rows="10" cols="50"></textarea>
+    <button onclick="sendMessage(document.getElementById('codeEditor').value)">Send</button>
+    
+    <div class="image-container">
+      <img src="#" alt="Image 1">
+      <img src="#" alt="Image 2">
+      <img src="#" alt="Image 3">
+    </div>
+  </div>
+
+  <div class="footer">
+    <p>&copy; 2023 CodeFlow. All rights reserved.</p>
+    <p>Made with ❤️ by Your Name</p>
+  </div>
+
+  <script>
+    const socket = new WebSocket('ws://localhost:3000');
+
+    // Connection opened
+    socket.addEventListener('open', (event) => {
+      console.log('Connected to WebSocket server');
+    });
+
+    // Listen for messages from the server
+    socket.addEventListener('message', (event) => {
+      const message = event.data;
+      console.log('Received message:', message);
+      // Handle the received message as needed
+    });
+
+    // Send a message to the server
+    function sendMessage(message) {
+      socket.send(message);
+    }
+  </script>
+</body>
+</html>
