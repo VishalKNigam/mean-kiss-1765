@@ -4,9 +4,9 @@ const Home = () => {
   return (
     <div className="homePageWrapper">
       <div className="formWrapper">
-        <img src="/code-sync.png" alt="code-sync-logo" />
-        <h4>Paste Invitation Room-ID</h4>
-        <div>
+        <img src="/code-sync.png" className="homePageLogo" alt="code-sync-logo" />
+        <h4 className="mainLabel">Paste Invitation Room-ID</h4>
+        <div className="inputGroup">
           <input type="text" className="inputBox" placeholder="Room ID" />
           <input type="text" className="inputBox" placeholder="User Name" />
           <button className="btn joinBtn">JOIN</button>
